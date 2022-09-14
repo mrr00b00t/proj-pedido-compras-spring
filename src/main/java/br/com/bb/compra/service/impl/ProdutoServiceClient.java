@@ -1,19 +1,15 @@
 package br.com.bb.compra.service.impl;
 
 import br.com.bb.compra.clients.ProdutoQuarkusClient;
-import br.com.bb.compra.converter.ProdutoConverter;
 import br.com.bb.compra.model.Produto;
 import br.com.bb.compra.model.entity.ProdutoEntity;
-import br.com.bb.compra.repository.ProdutoRepository;
 import br.com.bb.compra.service.ProdutoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.hateoas.PagedModel;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -40,6 +36,11 @@ public class ProdutoServiceClient implements ProdutoService {
     @Override
     public Produto buscaPorId(Long id) {
         return quarkusClient.buscaPorId(id);
+    }
+
+    @Override
+    public Produto deletarPorId(Long id) {
+        return null;
     }
 
     @Override

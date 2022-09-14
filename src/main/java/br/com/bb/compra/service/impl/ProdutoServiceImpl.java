@@ -49,6 +49,18 @@ public class ProdutoServiceImpl implements ProdutoService {
     }
 
     @Override
+    public Produto deletarPorId(Long id) {
+        final ProdutoEntity produtoEntity = repository.findById(id)
+                .orElseThrow(RuntimeException::new);
+
+        Produto produto = ProdutoConverter.convertEntityTo(produtoEntity);
+
+        repository.delete(produtoEntity);
+
+        return produto;
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public boolean isEmpty() {
         return repository.count() == 0;

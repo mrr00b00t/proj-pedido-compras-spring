@@ -33,6 +33,11 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoServiceImpl.buscaPorId(id));
     }
 
+    @GetMapping("/{id}/delete")
+    public ResponseEntity<Produto> deleteId(@PathVariable Long id) {
+        return ResponseEntity.ok(produtoServiceImpl.deletarPorId(id));
+    }
+
     @PostMapping
     public ResponseEntity<Produto> salvar(@RequestBody @Valid Produto produto) {
         return ResponseEntity.ok(produtoServiceImpl.salvar(produto));
